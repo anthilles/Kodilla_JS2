@@ -15,6 +15,13 @@ var Counter = React.createClass({
         this.setState({
             counter: this.state.counter -1
         });
+        {
+            if(this.state.counter <= 0){
+                this.setState({
+                    counter: 0
+                });
+            }
+        }
     },
 
     render: function() {
@@ -35,5 +42,4 @@ var Counter = React.createClass({
 });
 
 var element = React.createElement(Counter);
-
 ReactDOM.render(element, document.getElementById('app'));
