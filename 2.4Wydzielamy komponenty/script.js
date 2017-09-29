@@ -1,4 +1,4 @@
-var ebook = [
+var ebooks = [
         {
             id: 1,
             title: '101 Niezwykłych pomysłów na biznes',
@@ -67,13 +67,13 @@ var ebook = [
 // klasa tytuł ebooka
 var EbookTitle = React.createClass({
     propType: {
-        ebook: React.PropTypes.object.isRequired
+        ebooks: React.PropTypes.object.isRequired
     },
     render: function() {
         return React.createElement(
             'h2',
             {},
-            this.props.ebook.title
+            this.props.ebooks.title
         );
     }
 });
@@ -81,13 +81,13 @@ var EbookTitle = React.createClass({
 // klasa format ebooka
 var EbookFormat = React.createClass({
     propType: {
-        ebook: React.PropTypes.object.isRequired
+        ebooks: React.PropTypes.object.isRequired
     },
     render: function() {
         return React.createElement(
             'p',
             {},
-            'Format mobi: ' + this.props.ebook.mobi + '|| Format epub: ' + this.props.ebook.epub
+            'Format mobi: ' + this.props.ebooks.mobi + '|| Format epub: ' + this.props.ebooks.epub
         );
     }
 });
@@ -95,7 +95,7 @@ var EbookFormat = React.createClass({
 // klasa okładka ebooka
 var EbookCover = React.createClass({
     propType: {
-        ebook: React.PropTypes.object.isRequired
+        ebooks: React.PropTypes.object.isRequired
     },
     render: function() {
         return React.createElement(
@@ -105,27 +105,27 @@ var EbookCover = React.createClass({
                     height: "150px",
                     width: "150px"
                 },
-            src: this.props.ebook.cover}
+            src: this.props.ebooks.cover}
         );
     }
 });
 
 // klasa wszystkie elementy ebooka
-var EbookInfo = ebook.map(function(ebook) {
+var EbookInfo = ebooks.map(function(ebook) {
     return React.createElement(
         'li',
         {key: ebook.id},
         React.createElement(
             EbookTitle,
-            {ebook:ebook}
+            {ebooks:ebook}
         ),
         React.createElement(
             EbookFormat,
-            {ebook:ebook}
+            {ebooks:ebook}
         ),
         React.createElement(
             EbookCover,
-            {ebook:ebook}
+            {ebooks:ebook}
         )
     )
 });
